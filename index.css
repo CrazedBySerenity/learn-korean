@@ -1,0 +1,103 @@
+body {
+    background-color: rgb(40, 40, 40);
+
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.interface__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.answer__bg {
+    position: absolute;
+    background-color: lightblue;
+    border-radius: 50%;
+
+    z-index: -1;
+
+    transition: 
+        height 0.6s ease-in-out,
+        width 0.6s ease-in-out
+    ;
+}
+
+.answer__bg-red {
+    background-color: lightcoral;
+    width: 0px;
+    height: 0px;
+}
+
+.answer__bg-blue {
+    background-color: lightblue;
+    
+    height: 500px;
+    width: 500px;
+}
+
+.prompt__container {
+
+}
+
+.answer__container {
+
+}
+
+.answer__container--extra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.answer__prompt {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.answer__input {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    width: 250px;
+    height: 30px;
+    margin: 2px
+}
+
+.answer__submit {
+    display: none;
+}
+
+.answer__input:hover {
+    border: 2px black solid;
+    margin: 0px;
+}
+
+
+.answer__container--kr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.answer__romanisation {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.answer__kr {
+    color: black;
+    font-family: "Noto Sans KR", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2rem;
+
+    margin-left: 20px;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="interface__container">
+        <div class="answer__bg answer__bg-blue" id="answer-bg-correct">
+
+        </div>
+        <div class="answer__bg answer__bg-red" id="answer-bg-incorrect">
+
+        </div>
+        <div class="prompt__container">
+            <h4 id="answer-prompt" class="answer__prompt">
+                Prompt
+            </h4>
+        </div>
+        <div class="answer__container">
+            <input class="answer__input" id="answer-input">
+            <button id="submit-button" class="answer__submit">
+                Confirm
+            </button>
+        </div>
+        <div class="answer__container--extra" id="answer-extra">
+            <div class="answer__container--kr">
+                <p class="answer__romanisation" id="answer-romanisation">
+    
+                </p>
+                <p class="answer__kr" id="answer-kr">
+
+                </p>
+            </div>
+            <p class="answer__description" id="answer-description">
+
+            </p>
+            <p class="answer__curiosa" id="answer-curiosa">
+
+            </p>
+        </div>
+    </div>
+    <script src="Prompts.js" type="module"></script>
+    <script src="main.js" type="module"></script>
+</body>
+</html>
