@@ -101,4 +101,8 @@ const PromptDatabase = [
     {p: "Answer", a: "답", d: "A solution to a problem or question.", c: "", r: "dap"}
 ]
 
+const SubSelectionTest = [
+
+]
+
 export {PromptDatabase};

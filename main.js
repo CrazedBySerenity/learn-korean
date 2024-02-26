@@ -8,6 +8,7 @@ const krText = document.getElementById("answer-kr");
 const curiosa = document.getElementById("answer-curiosa");
 const extraContainer = document.getElementById("answer-extra");
 const submitButton = document.getElementById("submit-button");
+const limitButton = document.getElementById("limit-button");
 
 const correctBg = document.getElementById("answer-bg-correct");
 const incorrectBg = document.getElementById("answer-bg-incorrect");
@@ -19,6 +20,9 @@ let promptID = null;
 let curPrompt = null;
 
 let hasAnswered = false;
+let useLimitedSelection = false;
+
+let curDatabase = [...PromptDatabase];
 
 // p =  prompt
 // a = answer
@@ -30,8 +34,8 @@ function GeneratePrompt() {
     // Pick a prompt
     // Replace the text
 
-    promptID = Math.floor(Math.random() * PromptDatabase.length)
-    curPrompt = PromptDatabase[promptID];
+    promptID = Math.floor(Math.random() * curDatabase.length)
+    curPrompt = curDatabase[promptID];
     hasAnswered = false;
     textPrompt.textContent = curPrompt.p;
     description.textContent = curPrompt.d;
@@ -82,6 +86,22 @@ function HandleInput() {
     input.value = "";
 }
 
+function LimitSelection(limit) {
+    if(!limit){
+        limit = 10;
+    }
+    curDatabase = [];
+    const databaseCopy = [...PromptDatabase];
+    for(let i = 0; i < 10; i++){
+        let newPromptID = Math.floor(Math.random() * databaseCopy.length);
+        curDatabase.push(databaseCopy[newPromptID]);
+        databaseCopy.splice(newPromptID, 1);
+    }
+    console.log(curDatabase.length);
+    useLimitedSelection = true;
+    GeneratePrompt();
+}
+
 function nextPrompt() {
     if(hasAnswered){
         GeneratePrompt();
@@ -96,8 +116,15 @@ addEventListener("keydown", (event) => {
         nextPrompt();
     }
 });
+
 submitButton.addEventListener("click", (event) => {
     nextPrompt();
 });
 
+limitButton.addEventListener("click", (event) => {
+    LimitSelection();
+});
+
+
+LimitSelection();
 GeneratePrompt();

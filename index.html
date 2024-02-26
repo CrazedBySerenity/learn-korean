@@ -11,40 +11,45 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="interface__container">
-        <div class="answer__bg answer__bg-blue" id="answer-bg-correct">
-
-        </div>
-        <div class="answer__bg answer__bg-red" id="answer-bg-incorrect">
-
-        </div>
-        <div class="prompt__container">
-            <h4 id="answer-prompt" class="answer__prompt">
-                Prompt
-            </h4>
-        </div>
-        <div class="answer__container">
-            <input class="answer__input" id="answer-input">
-            <button id="submit-button" class="answer__submit">
-                Confirm
-            </button>
-        </div>
-        <div class="answer__container--extra" id="answer-extra">
-            <div class="answer__container--kr">
-                <p class="answer__romanisation" id="answer-romanisation">
+    <div class="page__container">
+        <div class="interface__container">
+            <div class="answer__bg answer__bg-blue" id="answer-bg-correct">
+    
+            </div>
+            <div class="answer__bg answer__bg-red" id="answer-bg-incorrect">
+    
+            </div>
+            <div class="prompt__container">
+                <h4 id="answer-prompt" class="answer__prompt">
+                    Prompt
+                </h4>
+            </div>
+            <div class="answer__container">
+                <input class="answer__input" id="answer-input">
+                <button id="submit-button" class="answer__submit">
+                    Confirm
+                </button>
+            </div>
+            <div class="answer__container--extra" id="answer-extra">
+                <div class="answer__container--kr">
+                    <p class="answer__romanisation" id="answer-romanisation">
+        
+                    </p>
+                    <p class="answer__kr" id="answer-kr">
+    
+                    </p>
+                </div>
+                <p class="answer__description" id="answer-description">
     
                 </p>
-                <p class="answer__kr" id="answer-kr">
-
+                <p class="answer__curiosa" id="answer-curiosa">
+    
                 </p>
             </div>
-            <p class="answer__description" id="answer-description">
-
-            </p>
-            <p class="answer__curiosa" id="answer-curiosa">
-
-            </p>
         </div>
+        <button class="limit-button" id="limit-button">
+            Limit selection
+        </button>
     </div>
     <script src="Prompts.js" type="module"></script>
     <script src="main.js" type="module"></script>
