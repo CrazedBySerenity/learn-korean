@@ -58,11 +58,18 @@
             </div>
         </div>
         <div class="settings__container">
+            <p class="settings__description">
+                Limiting selection is recommended. <br>
+                Smart prompting is currently active, words you answer incorrectly will have an increased likelihood of appearing again. 
+            </p>
             <button class="multians__toggle" id="multians-toggle">
                 Enable multiple choice
             </button>
             <button class="limit-button" id="limit-button">
                 Limit selection
+                <p class="limit-button__toast" id="limit-toast">
+                    Selection has been limited!
+                </p>
             </button>
         </div>
     </div>

@@ -9,6 +9,7 @@ const curiosa = document.getElementById("answer-curiosa");
 const extraContainer = document.getElementById("answer-extra");
 const submitButton = document.getElementById("submit-button");
 const limitButton = document.getElementById("limit-button");
+const limitButtonToast = document.getElementById("limit-toast");
 const multiAnswerContainer = document.getElementById("multians-container");
 const multiAnswerToggle = document.getElementById("multians-toggle");
 
@@ -109,7 +110,7 @@ function HandleInput() {
 
 function LimitSelection(limit) {
     if(!limit){
-        limit = 10;
+        limit = 8;
     }
     curDatabase = [];
     const databaseCopy = [...PromptDatabase];
@@ -123,14 +124,28 @@ function LimitSelection(limit) {
     for(let i = 0; i < 2; i++){
         curDatabase.push(...curDatabaseCopy);
     }
-    console.log(curDatabase);
     console.log("Limited selection to: " + curDatabase.length + " words");
     useLimitedSelection = true;
     GeneratePrompt();
+
+    limitButtonToast.style.opacity = "100%";
+    setTimeout(() => {
+        limitButtonToast.style.transition = "all ease-out 1s"
+        limitButtonToast.style.opacity = "0%";
+    }, 1500)
 }
 
 function nextPrompt() {
     if(hasAnswered){
+        if(curDatabase.length <= 0){
+            textPrompt.textContent = "";
+            romanisation.textContent = "";
+            curiosa.textContent = "";
+            krText.textContent = "";
+            input.value = "";
+
+            description.textContent = "You seem to have mastered all of the currently selected words! Press limit selection again to challenge yourself with a new set of words"
+        }
         GeneratePrompt();
     }
     else {
@@ -154,13 +169,11 @@ limitButton.addEventListener("click", (event) => {
 
 multiAnswerToggle.addEventListener("click", (event) => {
     if(multiAnswerActive){
-        console.log("hiding UI")
         multiAnswerContainer.style.display = "none";
         multiAnswerToggle.textContent = "Enable multiple choice";
         multiAnswerActive = false;
     }
     else {
-        console.log("revealing UI")
         multiAnswerContainer.style.display = "grid";
         multiAnswerToggle.textContent = "Disable multiple choice";
         multiAnswerActive = true;
