@@ -67,6 +67,9 @@ function SetAnswerStyle (answer) {
         correctBg.style.width = bgMaxSize;
         incorrectBg.style.height = bgMinSize;
         incorrectBg.style.width = bgMinSize;
+
+        const index = curDatabase.indexOf(curPrompt);
+        curDatabase.splice(index, 1);
     }
     else if(answer == "incorrect"){
         //console.log("incorrect");
@@ -76,6 +79,8 @@ function SetAnswerStyle (answer) {
         incorrectBg.style.width = bgMaxSize;
         correctBg.style.height = bgMinSize;
         correctBg.style.width = bgMinSize;
+
+        curDatabase.push(curPrompt);
     }
     else {
         //console.log("error")
@@ -108,11 +113,17 @@ function LimitSelection(limit) {
     }
     curDatabase = [];
     const databaseCopy = [...PromptDatabase];
-    for(let i = 0; i < 10; i++){
+    for(let i = 0; i < limit; i++){
         let newPromptID = Math.floor(Math.random() * databaseCopy.length);
         curDatabase.push(databaseCopy[newPromptID]);
         databaseCopy.splice(newPromptID, 1);
     }
+
+    const curDatabaseCopy = [...curDatabase];
+    for(let i = 0; i < 2; i++){
+        curDatabase.push(...curDatabaseCopy);
+    }
+    console.log(curDatabase);
     console.log("Limited selection to: " + curDatabase.length + " words");
     useLimitedSelection = true;
     GeneratePrompt();
