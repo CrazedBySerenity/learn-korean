@@ -112,7 +112,7 @@ background-color: rgb(40, 40, 40);
 
 .multians__container {
     align-self: center;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 
@@ -140,11 +140,24 @@ background-color: rgb(40, 40, 40);
     border-radius: 15px;
 }
 
-.limit-button {
-    width: 160px;
+.settings__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.multians__toggle {
+    width: 140px;
     height: 60px;
 
-    margin: 25px;
+    margin: 15px;
+}
+
+.limit-button {
+    width: 140px;
+    height: 60px;
+
+    margin: 15px;
 }
 
 @media screen and (min-width: 1000px) {

@@ -9,6 +9,8 @@ const curiosa = document.getElementById("answer-curiosa");
 const extraContainer = document.getElementById("answer-extra");
 const submitButton = document.getElementById("submit-button");
 const limitButton = document.getElementById("limit-button");
+const multiAnswerContainer = document.getElementById("multians-container");
+const multiAnswerToggle = document.getElementById("multians-toggle");
 
 const correctBg = document.getElementById("answer-bg-correct");
 const incorrectBg = document.getElementById("answer-bg-incorrect");
@@ -21,6 +23,7 @@ let curPrompt = null;
 
 let hasAnswered = false;
 let useLimitedSelection = false;
+let multiAnswerActive = false;
 
 let curDatabase = [...PromptDatabase];
 
@@ -137,6 +140,21 @@ submitButton.addEventListener("click", (event) => {
 limitButton.addEventListener("click", (event) => {
     LimitSelection();
 });
+
+multiAnswerToggle.addEventListener("click", (event) => {
+    if(multiAnswerActive){
+        console.log("hiding UI")
+        multiAnswerContainer.style.display = "none";
+        multiAnswerToggle.textContent = "Enable multiple choice";
+        multiAnswerActive = false;
+    }
+    else {
+        console.log("revealing UI")
+        multiAnswerContainer.style.display = "grid";
+        multiAnswerToggle.textContent = "Disable multiple choice";
+        multiAnswerActive = true;
+    }
+})
 
 
 AllowMultiAnswer({answerCallback: SetAnswerStyle, nextPromptCallback: GeneratePrompt, hasAnswered: hasAnswered});
