@@ -10,17 +10,123 @@ background-color: rgb(40, 40, 40);
 .page__container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     height: 100vh;
 }
 
 .interface__container {
+    position: relative;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
+
+    max-width: 2400px;
+    max-height: 1200px;
+}
+
+.category__menu__anchor {
+    position: absolute;
+    left: calc(50% - 40px);
+    top: 50%;
+
+    width: 80px;
+    height: 80px;
+
+    background-color: transparent;
+
+    transform: translate(-350%, -300%);
+}
+
+.category__menu__container {
+    position: absolute;
+
+    top: 50%;
+
+    width: 100%;
+
+    z-index: -1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    align-self: flex-start;
+
+    background-color: transparent;
+}
+
+.category__menu__item {
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    padding: 5px;
+    
+    background-color: black;
+
+    border-radius: 15px;
+
+    transition: all 300ms;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    user-select: none;
+
+    font-size: 14px;
+}
+
+.category__menu__item:hover {
+    background-color: lightblue;
+}
+
+.category__menu__button {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    z-index: 1;
+
+    width: 80px;
+    height: 80px;
+    align-self: flex-start;
+
+    background-color: black;
+
+    transition: transform 400ms 100ms;
+}
+
+.category__menu__anchor:hover > .category__menu__button  {
+    transform: rotate(-90deg) scale(1.1);
+}
+
+.category__menu__button__decorator {
+    width: 50px;
+    height: 7px;
+
+    border-radius: 5px;
+
+    margin-top: 3px;
+    margin-bottom: 3px;
+
+    background-color: white;
+
+    transition: all 100ms 350ms;
 }
 
 .answer__bg {
@@ -147,13 +253,16 @@ background-color: rgb(40, 40, 40);
 
 .settings__container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     justify-content: center;
+    align-items: center;
 }
 
 .settings__description {
     color: white;
     text-align: center;
+
+    margin: 10px;
 }
 
 .multians__toggle {
@@ -176,12 +285,20 @@ background-color: rgb(40, 40, 40);
 }
 
 .limit-button__toast {
-    bottom: 70px;
-    position: absolute;
+    position: relative;
     
     color: white;
 
     opacity: 0%;
+
+    margin: 10px;
+}
+
+.included-words__text {
+    position: relative;
+    color: white;
+
+    margin: 10px;
 }
 
 @media screen and (min-width: 1000px) {

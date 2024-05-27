@@ -1,4 +1,6 @@
 import {PromptDatabase} from "./Prompts.js";
+import {weatherDatabase} from "./Prompts.js";
+import {restaurantDatabase} from "./Prompts.js";
 
 const input = document.getElementById("answer-input");
 const textPrompt = document.getElementById("answer-prompt");
@@ -7,7 +9,10 @@ const romanisation = document.getElementById("answer-romanisation");
 const krText = document.getElementById("answer-kr");
 const curiosa = document.getElementById("answer-curiosa");
 const extraContainer = document.getElementById("answer-extra");
+const includedWordsText = document.getElementById("included-words");
 const submitButton = document.getElementById("submit-button");
+const weatherButton = document.getElementById("weather-button");
+const restaurantButton = document.getElementById("restaurant-button");
 const limitButton = document.getElementById("limit-button");
 const limitButtonToast = document.getElementById("limit-toast");
 const multiAnswerContainer = document.getElementById("multians-container");
@@ -27,6 +32,7 @@ let useLimitedSelection = false;
 let multiAnswerActive = false;
 
 let curDatabase = [...PromptDatabase];
+let baseDatabase = [...PromptDatabase];
 
 // p = prompt
 // a = answer
@@ -113,7 +119,7 @@ function LimitSelection(limit) {
         limit = 8;
     }
     curDatabase = [];
-    const databaseCopy = [...PromptDatabase];
+    const databaseCopy = [...baseDatabase];
     for(let i = 0; i < limit; i++){
         let newPromptID = Math.floor(Math.random() * databaseCopy.length);
         curDatabase.push(databaseCopy[newPromptID]);
@@ -126,6 +132,7 @@ function LimitSelection(limit) {
     }
     console.log("Limited selection to: " + curDatabase.length + " words");
     useLimitedSelection = true;
+    ShowIncludedWords();
     GeneratePrompt();
 
     limitButtonToast.style.opacity = "100%";
@@ -167,14 +174,42 @@ limitButton.addEventListener("click", (event) => {
     LimitSelection();
 });
 
+weatherButton.addEventListener("click", (event) => {
+    setWeatherDatabase();
+});
+
+restaurantButton.addEventListener("click", (event) => {
+    setRestaurantDatabase();
+});
+
+function setWeatherDatabase() {
+    curDatabase = [...weatherDatabase];
+    baseDatabase = [...weatherDatabase];
+    GeneratePrompt();
+    ShowIncludedWords();
+}
+
+function setRestaurantDatabase() {
+    curDatabase = [...restaurantDatabase];
+    baseDatabase = [...restaurantDatabase];
+    GeneratePrompt();
+    ShowIncludedWords();
+}
+
+function ShowIncludedWords() {
+    includedWordsText.textContent = "Currently including: " + curDatabase.length + " words";
+}
+
 multiAnswerToggle.addEventListener("click", (event) => {
     if(multiAnswerActive){
         multiAnswerContainer.style.display = "none";
         multiAnswerToggle.textContent = "Enable multiple choice";
+        multiAnswerToggle.style.backgroundColor = "black";
         multiAnswerActive = false;
     }
     else {
         multiAnswerContainer.style.display = "grid";
+        multiAnswerToggle.style.backgroundColor = "lightblue";
         multiAnswerToggle.textContent = "Disable multiple choice";
         multiAnswerActive = true;
     }
@@ -184,4 +219,4 @@ multiAnswerToggle.addEventListener("click", (event) => {
 AllowMultiAnswer({answerCallback: SetAnswerStyle, nextPromptCallback: GeneratePrompt, hasAnswered: hasAnswered});
 
 GeneratePrompt();
-console.log("Currently including: " + PromptDatabase.length + " words");
+ShowIncludedWords();

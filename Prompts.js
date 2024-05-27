@@ -101,6 +101,63 @@ const PromptDatabaseBasic = [
     {p: "Answer", a: "답", d: "A solution to a problem or question.", c: "", r: "dap"}
 ]
 
+const PromptDatabaseWeather = [
+    {p: "Sunny", a: "맑다", d: "Bright and clear, perfect for pretending to jog.", c: "", r: "makda"},
+    {p: "Raining", a: "비가 오다", d: "The sky is crying because it can't find its umbrella.", c: "와요 (wayo), 왔어요 (wasseoyo), 옵니다 (omnida)", r: "biga oda"},
+    {p: "Cloudy", a: "흐리다", d: "When the sky can't decide what to wear.", c: "흐려요 (heuryeoyo), 흐렸어요 (heuryeosseoyo), 흐립니다 (heurimnida)", r: "heurida"},
+    {p: "Windy", a: "바람이 불다", d: "Hold onto your hat, or say goodbye to it!", c: "불어요 (bureoyo), 불었어요 (bureosseoyo), 붑니다 (bum nida)", r: "barami bulda"},
+    {p: "Snowing", a: "눈이 오다", d: "Time for a snowball fight, or hot cocoa indoors.", c: "와요 (wayo), 왔어요 (wasseoyo), 옵니다 (omnida)", r: "nuni oda"},
+    {p: "Hot", a: "덥다", d: "Feels like you're in a microwave.", c: "더워요 (deowoyo), 더웠어요 (deowosseoyo), 덥습니다 (deopseumnida)", r: "deopda"},
+    {p: "Cold", a: "춥다", d: "Winter's way of hugging you tightly.", c: "추워요 (chuwoyo), 추웠어요 (chuwosseoyo), 춥습니다 (chupseumnida)", r: "chupda"},
+    {p: "Humid", a: "습하다", d: "Like walking through a wet sponge.", c: "습해요 (seuphaeyo), 습했어요 (seuphaesseoyo), 습합니다 (seuphamnida)", r: "seupada"},
+    {p: "Clear", a: "맑음", d: "No clouds, no excuses to stay inside.", c: "", r: "malgeum"},
+    {p: "Foggy", a: "안개 끼다", d: "The world in soft focus, just like a dream.", c: "껴요 (kkyeoyo), 꼈어요 (kkyeosseoyo), 낍니다 (kkimnida)", r: "angae kkida"},
+    {p: "Stormy", a: "폭풍우가 치다", d: "Thunder and lightning: nature's drum solo.", c: "쳐요 (chyeoyo), 쳤어요 (chyeosseoyo), 칩니다 (ch imnida)", r: "pokpunguga chida"},
+    {p: "Cool", a: "시원하다", d: "A breeze that feels like air conditioning.", c: "시원해요 (siwonhaeyo), 시원했어요 (siwonhaesseoyo), 시원합니다 (siwonhamnida)", r: "siwonhada"},
+    {p: "Freezing", a: "얼다", d: "Colder than your ex's heart.", c: "얼어요 (eoreoyo), 얼었어요 (eoreosseoyo), 얼습니다 (eorseumnida)", r: "eolda"},
+    {p: "Breezy", a: "바람이 솔솔", d: "Gentle wind that messes up your hair.", c: "", r: "barami solsol"},
+    {p: "Mild", a: "온화하다", d: "Just right, Goldilocks would approve.", c: "온화해요 (onhwahaeyo), 온화했어요 (onhwahaesseoyo), 온화합니다 (onhwaham nida)", r: "onhwahada"},
+    {p: "Rainy", a: "비오는", d: "Perfect for Netflix and chill (literally).", c: "", r: "bioneun"},
+    {p: "Icy", a: "얼음이 끼다", d: "Slippery like a banana peel in a cartoon.", c: "껴요 (kkyeoyo), 꼈어요 (kkyeosseoyo), 낍니다 (kkimnida)", r: "eoreumi kkida"},
+    {p: "Wet", a: "젖다", d: "Feels like you forgot your umbrella again.", c: "젖어요 (jeojeoyo), 젖었어요 (jeojeosseoyo), 젖습니다 (jeotseumnida)", r: "jeotda"},
+    {p: "Dry", a: "건조하다", d: "No moisture, just like your jokes.", c: "건조해요 (geonjohaeyo), 건조했어요 (geonjohaesseoyo), 건조합니다 (geonjohamnida)", r: "geonjohada"},
+    {p: "Chilly", a: "쌀쌀하다", d: "A bit too cold, like a passive-aggressive comment.", c: "쌀쌀해요 (ssalssalhaeyo), 쌀쌀했어요 (ssalssalhaesseoyo), 쌀쌀합니다 (ssalssalhamnida)", r: "ssalssalhada"},
+    {p: "Drizzling", a: "이슬비가 내리다", d: "Light rain, the sky's just sprinkling.", c: "내려요 (naeryeoyo), 내렸어요 (naeryeosseoyo), 내립니다 (naer imnida)", r: "iseulbiga naerida"},
+    {p: "Snowstorm", a: "눈보라", d: "Heavy snow and strong winds, brace yourself!", c: "", r: "nunbora"},
+    {p: "Blustery", a: "바람이 많이 불다", d: "Wind strong enough to steal your hat.", c: "불어요 (bureoyo), 불었어요 (bureosseoyo), 붑니다 (bumnida)", r: "barami mani bulda"},
+    {p: "Overcast", a: "구름이 많다", d: "Gray skies make everything look like a moody film.", c: "많아요 (manhayo), 많았어요 (manhasseoyo), 많습니다 (manhseumnida)", r: "gureumi manta"},
+    {p: "Thunder", a: "천둥이 치다", d: "Nature's way of saying, 'Turn down the volume!'", c: "쳐요 (chyeoyo), 쳤어요 (chyeosseoyo), 칩니다 (ch imnida)", r: "cheondungi chida"}    
+]
+
+const PromptDatabaseRestaurant = [
+    {p: "Menu", a: "메뉴", d: "Your roadmap to deliciousness.", c: "", r: "menyu"},
+    {p: "Order", a: "주문하다", d: "How to make food appear magically.", c: "주문해요 (jumunhaeyo), 주문했어요 (jumunhaesseoyo), 주문합니다 (jumunhamnida)", r: "jumunhada"},
+    {p: "Waiter", a: "웨이터", d: "Your new best friend for the next hour.", c: "", r: "weiteo"},
+    {p: "Bill", a: "계산서", d: "The part you don't want to see.", c: "", r: "gyesanseo"},
+    {p: "Water", a: "물", d: "Because hydration is key.", c: "", r: "mul"},
+    {p: "Delicious", a: "맛있다", d: "What you hope everything tastes like.", c: "맛있어요 (masisseoyo), 맛있었어요 (masisseosseoyo), 맛있습니다 (masitseumnida)", r: "masitda"},
+    {p: "Spicy", a: "맵다", d: "When your tongue feels on fire.", c: "매워요 (maewoyo), 매웠어요 (maewosseoyo), 맵습니다 (maepseumnida)", r: "maepda"},
+    {p: "Table", a: "테이블", d: "Where the magic happens.", c: "", r: "teibeul"},
+    {p: "Soup", a: "수프", d: "Liquid comfort in a bowl.", c: "", r: "supeu"},
+    {p: "Rice", a: "밥", d: "The staple of every meal.", c: "", r: "bap"},
+    {p: "Side dish", a: "반찬", d: "The supporting cast to your main dish.", c: "", r: "banchan"},
+    {p: "Chopsticks", a: "젓가락", d: "Mastery required for full enjoyment.", c: "", r: "jeotgarak"},
+    {p: "Fork", a: "포크", d: "Your trusty western friend.", c: "", r: "pokeu"},
+    {p: "Chicken", a: "치킨", d: "The universal comfort food.", c: "", r: "chikin"},
+    {p: "Beef", a: "소고기", d: "The king of meats.", c: "", r: "sogogi"},
+    {p: "Vegetables", a: "야채", d: "The healthy stuff your mom insists on.", c: "", r: "yachae"},
+    {p: "Pork", a: "돼지고기", d: "The meat that makes bacon.", c: "", r: "dwaejigogi"},
+    {p: "Fish", a: "생선", d: "The one that swims before it grills.", c: "", r: "saengseon"},
+    {p: "To eat", a: "먹다", d: "The whole point of this adventure.", c: "먹어요 (meogeoyo), 먹었어요 (meogeosseoyo), 먹습니다 (meokseumnida)", r: "meokda"},
+    {p: "To drink", a: "마시다", d: "Because you need a beverage with that.", c: "마셔요 (masyeoyo), 마셨어요 (masyeosseoyo), 마십니다 (masimnida)", r: "masida"},
+    {p: "Restaurant", a: "식당", d: "The place where the food magic happens.", c: "", r: "sikdang"},
+    {p: "Tea", a: "차", d: "The drink that soothes and energizes.", c: "", r: "cha"},
+    {p: "Coffee", a: "커피", d: "Your liquid fuel.", c: "", r: "keopi"},
+    {p: "Dessert", a: "디저트", d: "The sweet end to a good meal.", c: "", r: "dijeoteu"},
+    {p: "Reservation", a: "예약", d: "Ensures you have a spot at the table.", c: "", r: "yeyak"}
+
+]
+
 const PromptDatabaseSejongVocab = [
     {p: "Engagement", a: "약혼", d: "The official start of 'We're in this together' club.", c: "", r: "yakhon"},
     {p: "Vocabulary", a: "어휘", d: "The stuff you pretend to know during a test.", c: "", r: "eohwi"},
@@ -385,3 +442,5 @@ const SubSelectionTest = [
 ]
 
 export {PromptDatabaseSejongVocab as PromptDatabase};
+export {PromptDatabaseWeather as weatherDatabase};
+export {PromptDatabaseRestaurant as restaurantDatabase};

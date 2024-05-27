@@ -8,11 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+Mono:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="index.css">
-    <title>Document</title>
+    <title>Learn Korean</title>
 </head>
 <body>
     <div class="page__container">
         <div class="interface__container">
+            <div class="category__menu__anchor">
+                <div class="category__menu__button" onclick="OpenMenu()">
+                    <div class="category__menu__button__decorator"></div>
+                    <div class="category__menu__button__decorator"></div>
+                    <div class="category__menu__button__decorator"></div>
+                    
+                </div>
+                <div class="category__menu__container">
+                    <div class="category__menu__item category__menu__item--1" id="weather-button">
+                        Weather
+                    </div>
+                    <div class="category__menu__item category__menu__item--2" id="restaurant-button">
+                        Restaurant
+                    </div>
+                    <div class="category__menu__item" id="limit-button">
+                        Limit selection
+                    </div>
+                    <div class="category__menu__item" id="multians-toggle">
+                        Enable multiple choice
+                    </div>
+                </div>
+            </div>
             <div class="answer__bg answer__bg-blue" id="answer-bg-correct">
     
             </div>
@@ -62,18 +84,16 @@
                 Limiting selection is recommended. <br>
                 Smart prompting is currently active, words you answer incorrectly will have an increased likelihood of appearing again. 
             </p>
-            <button class="multians__toggle" id="multians-toggle">
-                Enable multiple choice
-            </button>
-            <button class="limit-button" id="limit-button">
-                Limit selection
-                <p class="limit-button__toast" id="limit-toast">
-                    Selection has been limited!
-                </p>
-            </button>
+            <p class="included-words__text" id="included-words">
+                Words included: 
+            </p>
+            <p class="limit-button__toast" id="limit-toast">
+                Selection has been limited!
+            </p>
         </div>
     </div>
-    <script src="multipleAnswer.js"></script>
+    <script src="menu.js"></script>
+    <script src="multipleAnswer.js"> </script>
     <script src="Prompts.js" type="module"></script>
     <script src="main.js" type="module"></script>
 </body>
