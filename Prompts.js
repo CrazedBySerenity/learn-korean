@@ -155,6 +155,89 @@ const PromptDatabaseRestaurant = [
     {p: "Coffee", a: "커피", d: "Your liquid fuel.", c: "", r: "keopi"},
     {p: "Dessert", a: "디저트", d: "The sweet end to a good meal.", c: "", r: "dijeoteu"},
     {p: "Reservation", a: "예약", d: "Ensures you have a spot at the table.", c: "", r: "yeyak"}
+]
+
+const PromptDatabaseDirections = [
+    {p: "Left", a: "왼쪽", d: "Your other right!", c: "", r: "oenjjok"},
+    {p: "Right", a: "오른쪽", d: "The correct side.", c: "", r: "oreunjjok"},
+    {p: "Straight", a: "직진", d: "No turns here, just keep going.", c: "", r: "jikjin"},
+    {p: "Turn", a: "돌다", d: "When straight isn't an option.", c: "돌아요 (dorayo), 돌았어요 (dorasseoyo), 돕니다 (domnida)", r: "dolda"},
+    {p: "Next to", a: "옆에", d: "Right beside, always there.", c: "", r: "yeope"},
+    {p: "Behind", a: "뒤에", d: "The place you can't see.", c: "", r: "dwie"},
+    {p: "In front of", a: "앞에", d: "Where you can see everything.", c: "", r: "ape"},
+    {p: "Across from", a: "맞은편에", d: "Facing you directly.", c: "", r: "majeunpyeone"},
+    {p: "Near", a: "가까이에", d: "Within arm's reach.", c: "", r: "gakkaie"},
+    {p: "Far", a: "멀리", d: "Quite a trek away.", c: "", r: "meolli"},
+    {p: "Intersection", a: "교차로", d: "Where roads meet and decisions are made.", c: "", r: "gyocharo"},
+    {p: "Traffic light", a: "신호등", d: "The stop-and-go wizard.", c: "", r: "sinhodeung"},
+    {p: "Street", a: "거리", d: "Your path through the city.", c: "", r: "geori"},
+    {p: "Building", a: "건물", d: "A vertical marvel.", c: "", r: "geonmul"},
+    {p: "Bridge", a: "다리", d: "Connecting two points over obstacles.", c: "", r: "dari"},
+    {p: "Park", a: "공원", d: "Nature's playground in the city.", c: "", r: "gongwon"},
+    {p: "Bus stop", a: "버스 정류장", d: "Your waiting spot for the bus.", c: "", r: "beoseu jeongryujang"},
+    {p: "Station", a: "역", d: "Where journeys begin and end.", c: "", r: "yeok"},
+    {p: "Airport", a: "공항", d: "Where the sky's the limit.", c: "", r: "gonghang"},
+    {p: "Highway", a: "고속도로", d: "The fast lane to anywhere.", c: "", r: "gosokdoro"},
+    {p: "To cross", a: "건너다", d: "Getting to the other side.", c: "건너요 (geonneoyo), 건넜어요 (geonneosseoyo), 건넙니다 (geonneomnida)", r: "geonneoda"},
+    {p: "To arrive", a: "도착하다", d: "Finally there.", c: "도착해요 (dochakaeyo), 도착했어요 (dochakhaesseoyo), 도착합니다 (dochakhamnida)", r: "dochakhada"},
+    {p: "To leave", a: "떠나다", d: "Time to say goodbye.", c: "떠나요 (tteonayo), 떠났어요 (tteonasseoyo), 떠납니다 (tteonamnida)", r: "tteonada"},
+    {p: "Map", a: "지도", d: "Your paper or digital guide.", c: "", r: "jido"},
+    {p: "Location", a: "위치", d: "Where you are right now.", c: "", r: "wichi"}
+]
+
+const PromptDatabaseShopping = [
+    {p: "Shopping", a: "쇼핑", d: "Retail therapy: the only doctor's appointment worth keeping.", c: "", r: "syoping"},
+    {p: "Price", a: "가격", d: "The only number that can give you sticker shock.", c: "", r: "gagyeok"},
+    {p: "Store", a: "가게", d: "Where dreams meet credit card limits.", c: "", r: "gage"},
+    {p: "Cash", a: "현금", d: "Paper rectangles with magical spending powers.", c: "", r: "hyeongeum"},
+    {p: "Credit card", a: "신용카드", d: "Plastic rectangles that turn 'I want it' into 'I got it'.", c: "", r: "sinyongkadeu"},
+    {p: "Sale", a: "세일", d: "The only natural disaster we're all secretly hoping for.", c: "", r: "seil"},
+    {p: "Receipt", a: "영수증", d: "The paper trail of our financial sins.", c: "", r: "yeongsujeung"},
+    {p: "Discount", a: "할인", d: "The sweet sound of saving money...or justifying spending more.", c: "", r: "halin"},
+    {p: "Market", a: "시장", d: "Where haggling is a sport and you're the MVP.", c: "", r: "sijang"},
+    {p: "Exchange", a: "환전", d: "Turning colorful paper into different colorful paper.", c: "", r: "hwanjeon"},
+    {p: "Wallet", a: "지갑", d: "Where money goes to disappear...and sometimes come back.", c: "", r: "jigap"},
+    {p: "Shopping cart", a: "쇼핑카트", d: "The four-wheeled enabler of impulse buys.", c: "", r: "syopingkateu"},
+    {p: "Total", a: "합계", d: "The sum of all fears...and desires.", c: "", r: "hapgye"},
+    {p: "Customer", a: "고객", d: "The brave souls who voluntarily enter the retail jungle.", c: "", r: "gogaek"},
+    {p: "Money", a: "돈", d: "The root of all joy...and bills.", c: "", r: "don"},
+    {p: "Bag", a: "가방", d: "The portable trophy case for successful shopping missions.", c: "", r: "gabang"},
+    {p: "Shop assistant", a: "점원", d: "The unsung heroes of retail therapy.", c: "", r: "jeomwon"},
+    {p: "Change (money)", a: "잔돈", d: "The pocket lint of the financial world.", c: "", r: "jandon"},
+    {p: "Bill", a: "지폐", d: "Paper rectangles that can make you rich...or poor.", c: "", r: "jipye"},
+    {p: "To buy", a: "사다", d: "Turning wants into must-haves, one swipe at a time.", c: "사요 (sayo), 샀어요 (sasseoyo), 삽니다 (samnida)", r: "sada"},
+    {p: "To sell", a: "팔다", d: "The modern-day equivalent of turning water into wine...or cash.", c: "팔아요 (parayo), 팔았어요 (parasseoyo), 팝니다 (pam-nida)", r: "palda"},
+    {p: "Expensive", a: "비싸다", d: "The cost of luxury: it's not just money; it's an experience.", c: "비싸요 (bissayo), 비쌌어요 (bissasseoyo), 비쌉니다 (bissamnida)", r: "bissada"},
+    {p: "Cheap", a: "싸다", d: "When the price tag is the best part of the product.", c: "싸요 (ssayo), 쌌어요 (ssasseoyo), 쌉니다 (ssamnida)", r: "ssada"},
+    {p: "Window shopping", a: "윈도우 쇼핑", d: "The only type of window that's fun to look at and not through.", c: "", r: "windo-u syoping"},
+    {p: "Impulse buy", a: "충동 구매", d: "When 'I'll just look' turns into 'I'll just buy it all'.", c: "", r: "chungdong gumae"}
+]
+
+const PromptDatabaseTravel = [
+    {p: "Airport", a: "공항", d: "Where your adventure begins...and sometimes ends.", c: "", r: "gonghang"},
+    {p: "Taxi", a: "택시", d: "The four-wheeled chariot of convenience.", c: "", r: "taeksi"},
+    {p: "Train", a: "기차", d: "The locomotive vessel of nostalgia and delays.", c: "", r: "gicha"},
+    {p: "Bus", a: "버스", d: "The communal ride of unexpected camaraderie.", c: "", r: "beoseu"},
+    {p: "Subway", a: "지하철", d: "The underground rollercoaster of urban exploration.", c: "", r: "ji-hacheol"},
+    {p: "Ticket", a: "표", d: "The golden key to your destination...or detour.", c: "", r: "pyo"},
+    {p: "Destination", a: "목적지", d: "The promised land of adventure and relaxation.", c: "", r: "mokjeokji"},
+    {p: "Passport", a: "여권", d: "Your official ticket to everywhere.", c: "", r: "yeogwon"},
+    {p: "Luggage", a: "수하물", d: "The physical manifestation of 'pack light'.", c: "", r: "suhamul"},
+    {p: "Map", a: "지도", d: "The paper trail of your grand adventure.", c: "", r: "jido"},
+    {p: "Car rental", a: "렌트카", d: "The temporary chariot of freedom.", c: "", r: "renteu-ka"},
+    {p: "Arrival", a: "도착", d: "The moment your vacation officially starts.", c: "", r: "dochak"},
+    {p: "Departure", a: "출발", d: "The bittersweet farewell to reality.", c: "", r: "chulbal"},
+    {p: "Traffic", a: "교통", d: "The chaotic ballet of cars and confusion.", c: "", r: "gyotong"},
+    {p: "Road trip", a: "로드 트립", d: "The spontaneous adventure on wheels.", c: "", r: "rodeu teurip"},
+    {p: "Cruise", a: "크루즈", d: "The floating buffet of indulgence and relaxation.", c: "", r: "keurujeu"},
+    {p: "Pilot", a: "파일럿", d: "The aerial captain of the friendly skies.", c: "", r: "pailreot"},
+    {p: "Flight attendant", a: "승무원", d: "The glamorous guardian of the skies.", c: "", r: "seungmuwon"},
+    {p: "Ferry", a: "페리", d: "The slow boat to scenic bliss.", c: "", r: "peri"},
+    {p: "Boarding pass", a: "탑승권", d: "The golden ticket to airborne adventures.", c: "", r: "tabseunggweon"},
+    {p: "Bicycle", a: "자전거", d: "The two-wheeled steed of eco-friendly exploration.", c: "", r: "jajeongeo"},
+    {p: "Walking", a: "도보", d: "The slow but scenic route to everywhere.", c: "", r: "dobo"},
+    {p: "Camping", a: "캠핑", d: "The outdoor adventure with s'mores and starlight.", c: "", r: "kaemping"},
+    {p: "Hitchhiking", a: "히치하이킹", d: "The thumb-powered journey of spontaneity.", c: "", r: "hichihai-king"}
 
 ]
 
@@ -444,3 +527,6 @@ const SubSelectionTest = [
 export {PromptDatabaseSejongVocab as PromptDatabase};
 export {PromptDatabaseWeather as weatherDatabase};
 export {PromptDatabaseRestaurant as restaurantDatabase};
+export {PromptDatabaseDirections as directionsDatabase};
+export {PromptDatabaseShopping as shoppingDatabase};
+export {PromptDatabaseTravel as travelDatabase};

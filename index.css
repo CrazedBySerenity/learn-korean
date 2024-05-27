@@ -86,6 +86,10 @@ background-color: rgb(40, 40, 40);
     font-size: 14px;
 }
 
+.category__menu__item--setting {
+    background-color: gray;
+}
+
 .category__menu__item:hover {
     background-color: lightblue;
 }
