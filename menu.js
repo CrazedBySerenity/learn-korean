@@ -44,6 +44,7 @@ function OpenMenu(){
         }
 
         else {
+        element.style.display = "flex";
         element.style.transform = `translateY(${curOffset}px)`;
         element.style.width = `${newSize * 2}px`;
         element.style.height = `${newSize}px`;
