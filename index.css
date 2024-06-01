@@ -28,6 +28,20 @@ background-color: rgb(40, 40, 40);
     max-height: 1200px;
 }
 
+.answer__UI__container {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+
+    max-width: 2400px;
+    max-height: 1200px;
+}
+
 .category__menu__anchor {
     position: absolute;
     left: calc(50% - 40px);
@@ -90,10 +104,6 @@ background-color: rgb(40, 40, 40);
     background-color: gray;
 }
 
-.category__menu__item:hover {
-    background-color: lightblue;
-}
-
 .category__menu__button {
     position: absolute;
 
@@ -113,10 +123,6 @@ background-color: rgb(40, 40, 40);
     background-color: black;
 
     transition: transform 400ms 100ms;
-}
-
-.category__menu__anchor:hover > .category__menu__button  {
-    transform: rotate(-90deg) scale(1.1);
 }
 
 .category__menu__button__decorator {
@@ -195,11 +201,6 @@ background-color: rgb(40, 40, 40);
 
 .answer__submit {
     display: none;
-}
-
-.answer__input:hover {
-    border: 2px black solid;
-    margin: 0px;
 }
 
 
@@ -305,10 +306,85 @@ background-color: rgb(40, 40, 40);
     margin: 10px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (max-width: 1000px) {
+
+    .answer__bg {
+        max-width: 95vw;
+        max-height: 95vw;
+    }
+
+    .answer__UI__container {
+        margin-top: 30px;
+    }
+
+    .category__menu__anchor {
+        position: absolute;
+        top: 0;
+        left: 0;
+    
+        width: 100vw;
+
+        transform: none;
+    }
+    
+    .category__menu__container {
+        width: 100%;
+        height: 100vh;
+        max-height: 400px;
+    
+        z-index: 0;
+    
+        display: flex;
+
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: space-between;
+        justify-content: flex-start;
+
+        padding-top: 60px;
+    }
+    
+    .category__menu__item {
+        position: relative;
+
+        margin: 10px;
+    }
+    
+    .category__menu__item--setting {
+        background-color: gray;
+    }
+    
+    .category__menu__button {    
+        border-radius: 0px;
+    
+        z-index: 1;
+    
+        width: 100%;
+        height: 60px;
+    }
+
     .multians__button {
         width: 180px;
         height: 60px;
         font-size: 1.2rem;
+    }
+}
+
+@media (hover: hover) {
+    .category__menu__item:hover {
+        background-color: lightblue;
+    }
+
+    .category__menu__anchor:hover > .category__menu__button  {
+        transform: rotate(-90deg) scale(1.1);
+    }
+
+    .category__menu__item:hover {
+        background-color: lightblue;
+    }
+
+    .answer__input:hover {
+        border: 2px black solid;
+        margin: 0px;
     }
 }

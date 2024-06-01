@@ -9,15 +9,23 @@ let menuOpen = false;
 baseSize = menuItems[0].getBoundingClientRect().width;
 
 function OpenMenu(){
+
     console.log(newSize)
     if(menuOpen){
         for(let i = 0; i < menuItems.length; i++){
             element = menuItems[i];
-            element.style.transform = `translateY(0px)`;
-            element.style.width = `${baseSize}px`;
-            element.style.height = `${baseSize}px`;
-            element.style.color = "transparent";
-            console.log(menuItems[0])
+            if(window.innerWidth <= 1000) {
+                element.style.display = "none";
+                element.style.width = `${baseSize}px`;
+                element.style.height = `${baseSize}px`;
+                element.style.color = "transparent";
+            }
+            else {
+                element.style.transform = `translateY(0px)`;
+                element.style.width = `${baseSize}px`;
+                element.style.height = `${baseSize}px`;
+                element.style.color = "transparent";
+            }
         }
         console.log("menu closed")
         menuOpen = false;
@@ -26,12 +34,22 @@ function OpenMenu(){
     let curOffset = baseOffset;
     for(let i = 0; i < menuItems.length; i++){
         element = menuItems[i];
+
+        if(window.innerWidth <= 1000) {
+            element.style.display = "flex";
+            element.style.width = `${newSize * 2}px`;
+            element.style.height = `${newSize}px`;
+            element.style.color = "white";
+        }
+
+        else {
         element.style.transform = `translateY(${curOffset}px)`;
         element.style.width = `${newSize * 2}px`;
         element.style.height = `${newSize}px`;
         element.style.color = "white";
         curOffset += offsetIncrease;
         console.log(menuItems[0])
+        }
     }
     console.log("menu opened")
     menuOpen = true;
