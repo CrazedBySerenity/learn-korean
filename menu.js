@@ -27,6 +27,7 @@ function OpenMenu(){
                 element.style.color = "transparent";
             }
         }
+        menuItems[0].parentNode.style.display = "none";
         console.log("menu closed")
         menuOpen = false;
         return;
@@ -51,6 +52,7 @@ function OpenMenu(){
         console.log(menuItems[0])
         }
     }
+    menuItems[0].parentNode.style.display = "flex";
     console.log("menu opened")
     menuOpen = true;
 }

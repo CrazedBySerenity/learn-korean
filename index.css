@@ -334,7 +334,7 @@ background-color: rgb(40, 40, 40);
     
         z-index: 0;
     
-        display: flex;
+        display: none;
 
         flex-direction: column;
         flex-wrap: wrap;
