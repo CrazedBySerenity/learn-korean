@@ -178,6 +178,12 @@ background-color: rgb(40, 40, 40);
     flex-direction: column;
     align-items: center;
 
+    max-width: 300px;
+    height: 100%;
+    max-height: 200px;
+
+    overflow: hidden;
+    border-radius: 0 0 50% 50%;
 }
 
 .answer__prompt {
@@ -187,6 +193,10 @@ background-color: rgb(40, 40, 40);
 
 .answer__description {
     max-width: 300px;
+    text-align: center;
+}
+
+.answer__curiosa {
     text-align: center;
 }
 
@@ -315,6 +325,10 @@ background-color: rgb(40, 40, 40);
 
     .answer__UI__container {
         margin-top: 30px;
+    }
+
+    .answer__container--extra {
+        max-width: 70%;
     }
 
     .category__menu__anchor {
